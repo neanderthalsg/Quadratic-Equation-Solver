@@ -1,0 +1,61 @@
+<! DOCTYPE HTML>
+<head>
+  <meta charset="utf-8" />
+  <title>Welcome to Quadratic Equation Solver</title>
+  <link rel='stylesheet' href="{{ url_for('static', filename='style.css')}}" type="text/css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <h1>
+    Welcome to Quadratic Equation Solver
+  </h1>
+
+  <span class="math">
+    \[ ax^2 + bx + c = 0 \]
+  </span>
+
+  <form method="post">
+    <span style="display:inline-block">
+    <input type="text" name="a" size="3" />
+    </span>
+    <span style="display:inline-block">
+    \[ x^2 + \]
+    </span>
+    <span style="display:inline-block">
+    <input type="text" name="b" size="3" />
+    </span>
+    <span style="display:inline-block">
+    \[ x + \]
+    </span>
+    <span style="display:inline-block">
+    <input type="text" name="c" size="3" />
+    </span>
+    <span style="display:inline-block">
+    \[ = 0 \]
+    </span>
+
+
+  <input type="submit" value="Solve!" style="display: block"/>
+  </form>
+
+  <script>
+  MathJax.typesetPromise()
+    .then(() => {
+      console.log('MathJax is loaded and typeset');
+    })
+    .catch((err) => {
+      console.log('There was an error typesetting MathJax:', err);
+    });
+  </script>
+
+
+  {% for ind in data %}
+  {{ ind }}
+  {% endfor %}
+  #{% if data %}
+  #{{ data }}
+  #{% endif %}
+
+</body>
